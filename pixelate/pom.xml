@@ -2,18 +2,31 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>pixelate</groupId>
   <artifactId>pixelate</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <start-class>com.ge.Application</start-class>
+  </properties>
   <build>
-    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.6.1</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version>
         <configuration>
-          <source/>
-          <target/>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>com.ge.healthcare.pixelate.Application</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
+
+
   </build>
 </project>
