@@ -45,22 +45,6 @@ public class Application {
   }
 
   private static int calculateColor(final BufferedImage sourceImage, int xTarget, int yTarget) {
-    int convertedColor = 0;
-    xTarget /= REDUCTION;
-    yTarget /= REDUCTION;
-
-    int sourceWidth = sourceImage.getWidth();
-    int sourceHeight = sourceImage.getHeight();
-    for (int xSource = xTarget * REDUCTION; xSource < (xTarget + 1) * REDUCTION && xSource < sourceWidth; xSource++) {
-      for (int ySource = yTarget * REDUCTION; ySource < (yTarget + 1) * REDUCTION && ySource < sourceHeight;
-          ySource++) {
-        int color = sourceImage.getRGB(xSource, ySource);
-        int red = (color & 0x00ff0000) >> 16;
-        int green = (color & 0x0000ff00) >> 8;
-        int blue = color & 0x000000ff;
-        convertedColor = red << 16 | green << 8 | blue;
-      }
-    }
-    return convertedColor;
+    return sourceImage.getRGB(xTarget / REDUCTION * REDUCTION, yTarget / REDUCTION * REDUCTION);
   }
 }
